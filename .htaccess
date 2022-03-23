@@ -1,0 +1,10 @@
+ErrorDocument 404 <script>document.location="http://localhost/potmefarm/pages/404notfound.php";</script>
+
+RewriteEngine On
+RewriteBase /
+
+RewriteCond %{REQUEST_URI} ^/404/$
+RewriteRule ^(.*)$ pages/404notfound.php [L]
+
+RewriteCond &{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
